@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { NewNote } from "./components/NewNote";
 
 function App() {
+  const [notes, setNotes] = useLocalStorage<RawNote[]>("notes", []);
   return (
     <Container className="my-4">
       <Routes>
