@@ -4,7 +4,7 @@ import { useNote } from "./NoteLayout";
 import ReactMarkdown from "react-markdown";
 
 type NoteProps = {
-  onDelete: (id: string) => void;
+  onDelete: (id: number) => void;
 };
 
 export function Note({ onDelete }: NoteProps) {
