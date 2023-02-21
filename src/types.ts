@@ -1,5 +1,5 @@
 export type Note = {
-  id: string;
+  id: number;
 } & NoteData;
 
 export type NoteData = {
@@ -9,7 +9,7 @@ export type NoteData = {
 };
 
 export type Tag = {
-  id: string;
+  id: number;
   label: string;
 };
 
@@ -18,11 +18,11 @@ export type Tag = {
 // want to update the value of the Tag alone. Hence ...
 
 export type RawNote = {
-  id: string;
+  id: number;
 } & RawNoteData;
 
 export type RawNoteData = {
   title: string;
   markdown: string;
-  tagIds: string[];
+  tagIds: number[];
 };

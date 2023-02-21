@@ -19,13 +19,24 @@ function App() {
     });
   }, [notes, tags]);
 
-  function onCreateNote({ tags, ...data }: NoteData) {}
+  function onCreateNote({ tags, ...data }: NoteData) {
+    setNotes((prevNotes) => {
+      return [
+        ...prevNotes,
+        {
+          ...data,
+          id: Date.now(),
+          tagIds: tags.map((tag) => tag.id),
+        },
+      ];
+    });
+  }
 
   return (
     <Container className="my-4">
       <Routes>
         <Route path="/" element={<h1>Home</h1>} />
-        <Route path="/new" element={<NewNote />} />
+        <Route path="/new" element={<NewNote onSubmit={onCreateNote} />} />
         <Route path="/:id">
           <Route index element={<h1>Show Task</h1>} />
           <Route path="edit" element={<h1>Edit task</h1>} />
