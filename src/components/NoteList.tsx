@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
 import { Tag } from "../types";
-import styles from "./NoteList.module.css";
+import styles from "../NoteList.module.css";
 
 type SimplifiedNote = {
   tags: Tag[];
@@ -62,7 +62,15 @@ export function NoteList({
     <>
       <Row className="align-items-center mb-4">
         <Col>
-          <h1>Notes</h1>
+          <h1
+            className="text-primary"
+            style={{
+              fontSize: "2.5rem",
+              fontWeight: 600,
+            }}
+          >
+            Notes
+          </h1>
         </Col>
         <Col xs="auto">
           <Stack gap={2} direction="horizontal">
@@ -82,7 +90,15 @@ export function NoteList({
         <Row className="mb-4">
           <Col>
             <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
+              <Form.Label
+                className="text-secondary mb-4"
+                style={{
+                  fontSize: "2rem",
+                  fontWeight: 600,
+                }}
+              >
+                Title
+              </Form.Label>
               <Form.Control
                 type="text"
                 value={title}
@@ -92,7 +108,15 @@ export function NoteList({
           </Col>
           <Col>
             <Form.Group controlId="tags">
-              <Form.Label>Tags</Form.Label>
+              <Form.Label
+                className="text-secondary mb-4"
+                style={{
+                  fontSize: "2rem",
+                  fontWeight: 600,
+                }}
+              >
+                Tags
+              </Form.Label>
               <ReactSelect
                 value={selectedTags.map((tag) => {
                   return { label: tag.label, value: tag.id };
@@ -120,6 +144,7 @@ export function NoteList({
           </Col>
         ))}
       </Row>
+
       <EditTagsModal
         onUpdateTag={onUpdateTag}
         onDeleteTag={onDeleteTag}

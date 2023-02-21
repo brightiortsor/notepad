@@ -41,13 +41,29 @@ export function NoteForm({
         <Row>
           <Col>
             <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
+              <Form.Label
+                className="text-secondary mb-4"
+                style={{
+                  fontSize: "2rem",
+                  fontWeight: 600,
+                }}
+              >
+                Title
+              </Form.Label>
               <Form.Control ref={titleRef} required defaultValue={title} />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="tags">
-              <Form.Label>Tags</Form.Label>
+              <Form.Label
+                className="text-secondary mb-4"
+                style={{
+                  fontSize: "2rem",
+                  fontWeight: 600,
+                }}
+              >
+                Tags
+              </Form.Label>
               <CreatableReactSelect
                 onCreateOption={(label) => {
                   const newTag = { id: Date.now(), label };
@@ -73,7 +89,15 @@ export function NoteForm({
           </Col>
         </Row>
         <Form.Group controlId="markdown">
-          <Form.Label>Body</Form.Label>
+          <Form.Label
+            className="text-secondary mb-2"
+            style={{
+              fontSize: "2rem",
+              fontWeight: 600,
+            }}
+          >
+            Body
+          </Form.Label>
           <Form.Control
             defaultValue={markdown}
             required
